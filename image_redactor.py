@@ -11,7 +11,8 @@ class Image_redactor:
 
     #демонстрирует изображение на waitKey милисекунд, если waitKey = 0, то изображение самостоятельно не закроеться
     def show(self,waitKey):
-        cv2.imshow(self.img,"image remake")
+        print(self.img)
+        cv2.imshow("image remake",self.img)
         cv2.waitKey(waitKey)
 
         
