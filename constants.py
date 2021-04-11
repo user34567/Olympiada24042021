@@ -1,9 +1,17 @@
-image_name = "image.jpg"
+schema_flot = "schema_flot.jpg"
+view_behind = "view_behind.jpg"
+view_front = "view_front.jpg"
 
-room_size = [400,400,250]
 
-point_size = [23.2,33]
 
-point1_c = [85,0,187]
-point2_c = [0,39.5,176]
-point3_c = [57,114.5,83]
+dp = None
+db = [0,0,0]
+texture_human = [
+    [dp,dp,db,db,db,dp,dp],
+    [dp,db,db,db,db,db,dp],
+    [db,db,db,db,db,db,db],
+    [db,db,db,db,db,db,db],
+    [db,db,db,db,db,db,db],
+    [dp,db,db,db,db,db,dp],
+    [dp,dp,db,db,db,dp,dp],
+]
