@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import cv2
 class logical:
     def __init__(self,ir):
@@ -42,3 +43,10 @@ class logical:
 
 
         
+=======
+
+class logical:
+    def __init__(self):
+        pass #nothing
+
+>>>>>>> 947dffae688834db50acbae7e5919a2ef9d01140
