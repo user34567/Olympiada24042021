@@ -1,9 +1,9 @@
-<<<<<<< HEAD
-
 import cv2
 from logic import logical
 from constants import texture_human
 from constants import view_behind
+import numpy as np
+
 class Image_redactor:
     #конструктор
     def __init__(self,image_name):
@@ -42,23 +42,21 @@ class Image_redactor:
     #изменяет точки на  рисунке self.current_img
     def drowconture(self,approx):
         cv2.drawContours(self.current_img, [approx], -1, (0, 255, 0), 4)
-=======
-import cv2
-from logic import logical
 
-class Image_redactor:
-    #конструктор
-    def __init__(self,image_name):
-        self.img = self.get_image(image_name)
-        self.logic = logical()
-    #возвращает изображение как 3-х мерный массив
-    def get_image(self,image_name):
-        return cv2.imread(image_name)
 
-    #демонстрирует изображение на waitKey милисекунд, если waitKey = 0, то изображение самостоятельно не закроеться
-    def show(self,waitKey):
-        cv2.imshow("image remake",self.img)
-        cv2.waitKey(waitKey)
-
+    def find_people(self,imgname):
         
->>>>>>> 947dffae688834db50acbae7e5919a2ef9d01140
+        frame = cv2.imread(imgname)
+        hog = cv2.HOGDescriptor()
+        hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
+        gray = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
+        boxes, weights = hog.detectMultiScale(frame, winStride=(8,8) )
+        boxes = np.array([[x, y, x + w, y + h] for (x, y, w, h) in boxes])
+        for (xA, yA, xB, yB) in boxes:
+            cv2.rectangle(frame, (xA, yA), (xB, yB),(0, 255, 0), 2)
+
+        #frame.write(frame.astype('uint8'))
+
+        print(frame)
+        cv2.imshow('frame',frame)
+        cv2.waitKey(0)

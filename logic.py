@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import cv2
 class logical:
     def __init__(self,ir):
@@ -38,15 +38,10 @@ class logical:
         for i in {0,1,2}:
                 color[i] = color[i]/len(c)
         return color
+
+    
         
 
 
 
         
-=======
-
-class logical:
-    def __init__(self):
-        pass #nothing
-
->>>>>>> 947dffae688834db50acbae7e5919a2ef9d01140
